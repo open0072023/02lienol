@@ -217,8 +217,8 @@ ramips_setup_macs()
 		label_mac=$lan_mac
 		;;
 	raisecom,msg1500-x-00)
-		lan_mac=$(mtd_get_mac_ascii Config protest_lan_mac)
-		wan_mac=$(mtd_get_mac_ascii Config protest_wan_mac)
+		lan_mac=$(mtd_get_mac_binary factory 0xe000)
+		wan_mac=$(macaddr_add "$lan_mac" +3)
 		label_mac=$lan_mac
 		;;
 	zte,e8820s)
